@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungi Spores</title>
+    <style>
+        body {
+            font-family: "Ubuntu", sans-serif;
+            text-align: center;
+            background-color: #E2F1E7;
+            color: #243642;
+        }
+
+        h1 {
+            cursor: pointer;
+            font-size: 120px; /* Increased font size */
+            margin: 40px 0; /* Increased margin */
+            text-shadow: 0 0 10px #629584; /* Basic glow effect */
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px; /* Increased margin */
+        }
+
+        .box {
+            text-shadow: 0 0 10px #629584; /* Basic glow effect */
+            color: #E2F1E7;
+            margin: 20px; /* Increased margin */
+            padding: 40px; /* Increased padding */
+            border: 2px solid #ccc; /* Increased border size */
+            background-color: #387478;
+            border-radius: 10px; /* Increased border radius */
+            width: 250px; /* Increased width */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px; /* Increased font size */
+        }
+
+        .sub-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Change to vertical layout */
+            align-items: center; /* Center align items */
+            margin-top: 20px; /* Increased margin */
+        }
+
+        .sub-box {
+            text-shadow: 0 0 10px #387478; /* Basic glow effect */
+            display: none; /* Initially hidden */
+            margin: 20px; /* Increased margin */
+            padding: 20px; /* Increased padding */
+            border: 2px solid #ccc; /* Increased border size */
+            background-color: #629584;
+            border-radius: 10px; /* Increased border radius */
+            width: 90%; /* Increased width to cover more page width */
+            max-width: 800px; /* Set a maximum width */
+            text-align: left;
+            font-size: 20px; /* Increased font size */
+        }
+
+        .sub-box-content {
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: space-between; /* Space between the two divisions */
+            align-items: center; /* Center align items vertically */
+        }
+
+        .sub-box div {
+            flex: 1; /* Allow both divisions to take equal space */
+            margin: 10px; /* Add some margin between the divisions */
+        }
+
+        .image {
+            max-width: 300px; /* Increased max width */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="welcome">Welcome</h1>
+
+<div id="main-boxes" class="main-container" style="display: none;">
+    <div class="box" id="sexual-spores">Sexual Spores</div>
+    <div class="box" id="asexual-spores">Asexual Spores</div>
+    <div class="box" id="asexual-fruiting-body">Asexual Fruiting Body</div>
+    <div class="box" id="sexual-fruiting-body">Sexual Fruiting Body</div>
+</div>
+
+<div class="sub-container">
+    <div id="sexual-spores-box" class="sub-box">
+        <div class="sub-box-content">
+            <div>Ascospore: Powdery Mildew<br><br><img class="image" src="first.png" alt="Powdery Mildew">
+                <br><br>
+                Life Cycle of Powdery Mildew
+                <br><br>
+                <img class="image" src="lc11.jpeg">
+            </div>
+
+            <div>Basidiospores: Rust<br><br><img class="image" src="second.png" alt="Rust">
+                <br><br>
+                Life Cycle of Rust
+                <br><br>
+                <img class="image" src="lc12.jpeg">
+            
+            </div>
+        </div>
+    </div>
+
+    <div id="asexual-spores-box" class="sub-box">
+        <div class="sub-box-content">
+
+        <div>Sporangiospores: Rhizopus<br><br><img class="image" src="third.png" alt="Rhizopus">
+            <br><br>
+            Life Cycle of Rhizopus
+            <br><br>
+            <img class="image" src="lc21.jpeg">
+        </div>
+        <div>Conidiospore: Aspergillus<br><br><img class="image" src="fourth.jpeg" alt="Aspergillus">
+            <br><br>
+            Life Cycle of Aspergillus
+            <br><br>
+            <img class="image" src="lc22.jpeg">
+        </div>
+    </div>
+</div>
+
+    <div id="asexual-fruiting-body-box" class="sub-box">
+        <div class="sub-box-content">
+
+        <div>Pycnidia: <br><br><img class="image" src ="fifth.jpeg" alt="Pycnidia"></div>
+        <div>Aservuli: <br><br><img class="image" src="sixth.jpeg" alt="Aservuli"></div>
+    </div></div>
+
+    <div id="sexual-fruiting-body-box" class="sub-box">
+        <div class="sub-box-content">
+
+        <div>Clisthothecium: <br><br><img class="image" src="seventh.jpeg" alt="Clisthothecium"></div>
+        <div>Apothecium: <br><br><img class="image" src="eigth.jpeg" alt="Apothecium"></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('welcome').onclick = function() {
+        document.getElementById('main-boxes').style.display = 'flex';
+    };
+
+    const boxes = {
+        'asexual-spores': 'asexual-spores-box',
+        'sexual-spores': 'sexual-spores-box',
+        'asexual-fruiting-body': 'asexual-fruiting-body-box',
+        'sexual-fruiting-body': 'sexual-fruiting-body-box'
+    };
+
+    for (const [mainBoxId, subBoxId] of Object.entries(boxes)) {
+        document.getElementById(mainBoxId).onclick = function() {
+            toggleBox(subBoxId);
+        };
+    }
+
+    function toggleBox(boxId) {
+        const box = document.getElementById(boxId);
+        if (box.style.display === 'none' || box.style.display === '') {
+            box.style.display = 'block';
+        } else {
+            box.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
